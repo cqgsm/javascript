@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+    <script>
+    var arr = [1,2,3,4,5,1,1,2,4,23,5,4,3];
+    // （1）用对象的方法 
+    //注：循环数组存成对象  key：value  
+    //  处理重复核心在if里面
+    var obj = {};
+    for(var i = 0;i<arr.length;i++){
+        var cur = arr[i];//获取数组每一项值
+        if(obj[cur]==cur){
+            arr[i] = arr[arr.length-1];//最后一项赋值给当前项
+            arr.length--;//删除最后一项
+            i--;//索引往前回退一位，下次循环 从刚才赋值过来的最后一项开始
+            continue;
+        }
+        obj[cur] = cur;//如果没有当前值就添加道对象
+    }
+    obj = null;
+    console.log(arr);
+    </script>
+    </body>
+</html>
